@@ -3,81 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de Sites no Iframe</title>
+    <title>Site no Iframe</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        /* Remove as margens padrão e faz a página ocupar 100% do espaço */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Evita barras de rolagem duplicadas */
             background-color: #f4f4f9;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+        
+        /* Configura o iframe para preencher a tela inteira sem bordas */
         iframe {
             width: 100%;
-            height: 600px;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            background-color: white;
+            height: 100%;
+            border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Abrir site em um Iframe</h2>
-        
-        <div class="controls">
-            <!-- O campo input já começa preenchido com o link -->
-            <input type="text" id="urlInput" value="https://ona.bet.br/" placeholder="Digite a URL" />
-            <button onclick="carregarSite()">Carregar Site</button>
-        </div>
-
-        <!-- O src do iframe já aponta diretamente para o site desejado -->
-        <iframe id="meuIframe" src="https://ona.bet.br/"></iframe>
-    </div>
-
-    <script>
-        function carregarSite() {
-            let url = document.getElementById('urlInput').value.trim();
-            
-            if (!url) {
-                alert("Por favor, digite uma URL válida.");
-                return;
-            }
-
-            if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                url = 'https://' + url;
-            }
-
-            document.getElementById('meuIframe').src = url;
-        }
-    </script>
+    <!-- O site já carrega automaticamente aqui -->
+    <iframe src="https://ona.bet.br/"></iframe>
 
 </body>
 </html>
