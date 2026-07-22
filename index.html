@@ -53,29 +53,28 @@
         <h2>Abrir site em um Iframe</h2>
         
         <div class="controls">
-            <input type="text" id="urlInput" placeholder="Digite a URL (ex: https://pt.wikipedia.org)" />
+            <!-- O campo input já começa preenchido com o link -->
+            <input type="text" id="urlInput" value="https://ona.bet.br/" placeholder="Digite a URL" />
             <button onclick="carregarSite()">Carregar Site</button>
         </div>
 
-        <iframe id="meuIframe" src=""></iframe>
+        <!-- O src do iframe já aponta diretamente para o site desejado -->
+        <iframe id="meuIframe" src="https://ona.bet.br/"></iframe>
     </div>
 
     <script>
         function carregarSite() {
             let url = document.getElementById('urlInput').value.trim();
             
-            // Verifica se a URL está vazia
             if (!url) {
                 alert("Por favor, digite uma URL válida.");
                 return;
             }
 
-            // Adiciona "https://" automaticamente se o usuário esquecer de colocar
             if (!url.startsWith('http://') && !url.startsWith('https://')) {
                 url = 'https://' + url;
             }
 
-            // Define a URL no iframe
             document.getElementById('meuIframe').src = url;
         }
     </script>
